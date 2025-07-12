@@ -8,8 +8,8 @@ public class Main {
         randomEmployees();
         print();
         System.out.println("Сумма ЗП сотрудников: " + calculateSumOfSalaries());
-        System.out.println("Сотрудника с мин ЗП: " + findEmployeeWitchMinSalary());
-        System.out.println("Сотрудника с макс ЗП: " + findEmployeeWitchMaxSalary());
+        System.out.println("Сотрудник с мин ЗП: " + findEmployeeWitchMinSalary());
+        System.out.println("Сотрудник с макс ЗП: " + findEmployeeWitchMaxSalary());
         System.out.println("Средняя ЗП: " + calculateAverageOfSalaries());
         printFullNames();
     }
