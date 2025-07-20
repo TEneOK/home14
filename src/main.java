@@ -2,7 +2,27 @@ import jdk.nio.mapmode.ExtendedMapMode;
 
 import java.util.Random;
 
-public class Main {
+public class main {
+
+    private final static Random random = new Random();
+    private final static String[] names = {"Иван", "Игорь", "Давид", "Сергей", "Данил", "Константин", "Николай", "Эдуард", "Петр"};
+    private final static String[] surnames = {"Иванов", "Петров", "Измайлов", "Чернышов", "Рыбкин", "Соловьев", "Львов",
+            "Кивин", "Перлов", "Ракетин", "Машинин", "Карасев",};
+
+    private final static String[] middle_names = {"Иванович", "Петрович", "Игоревич", "Константинович", "Эдуардович",
+            "Витальевич", "Сергеевич", "Николаевич", "Магомедович"};
+
+    private final static Employee[] EMPLOYEES = new Employee[10];
+
+    private static void randomEmployees() {
+        for (int i = 0; i < EMPLOYEES.length; i++) {
+            String fullName = surnames[random.nextInt(0, surnames.length)] + " " +
+                    names[random.nextInt(0, names.length)] + " " +
+                    middle_names[random.nextInt(0, middle_names.length)] + " ";
+            EMPLOYEES[i] = new Employee(fullName, random.nextInt(1, 6), random.nextInt(55_55,
+                    595959));
+        }
+    }
 
     public static void main(String[] args) {
         randomEmployees();
@@ -14,26 +34,6 @@ public class Main {
         printFullNames();
     }
 
-    private final static Random random = new Random();
-    private final static String[] names = {"Иван", "Игорь", "Давид", "Сергей", "Данил", "Константин", "Николай", "Эдуард", "Петр"};
-    private final static String[] surnames = {"Иванов", "Петров", "Измайлов", "Чернышов", "Рыбкин", "Соловьев", "Львов",
-            "Кивин", "Перлов", "Ракетин", "Машинин", "Карасев",};
-
-    private final static String[] middle_names = {"Иванович", "Петрович", "Игоревич", "Константинович", "Эдуардович",
-            "Витальевич", "Сергеевич", "Николаевич", "Магомедович"};
-
-    private static Employee[] EMPLOYEES = new Employee[10];
-
-    private static void randomEmployees() {
-        for (int i = 0; i < EMPLOYEES.length; i++) {
-            String fullName = surnames[random.nextInt(0, surnames.length)] + " " +
-                    names[random.nextInt(0, names.length)] + " " +
-                    middle_names[random.nextInt(0, middle_names.length)] + " ";
-            EMPLOYEES[i] = new Employee(fullName, random.nextInt(1, 6), random.nextInt(55_000,
-                    595959));
-        }
-    }
-
     private static void print() {
         for (Employee employee : EMPLOYEES) {
             System.out.println(employee);
@@ -43,7 +43,8 @@ public class Main {
     private static int calculateSumOfSalaries() {
         int sum = 0;
         for (Employee employee : EMPLOYEES) {
-            sum += employee.getSalary();
+            if (employee != null)
+                sum += employee.getSalary();
         }
         return sum;
     }
@@ -73,8 +74,9 @@ public class Main {
     }
 
     private static void printFullNames() {
-        for (Employee employee : EMPLOYEES) {
-            System.out.println(employee.getFullName());
+        for (Employee employee : main.EMPLOYEES) {
+            if (employee != null) System.out.println(employee.getFullName());
         }
     }
 }
+

@@ -1,5 +1,5 @@
 public class Employee {
-    private static int idCreate = 1;
+    private static int employeeIdSequence = 1;
 
     private final int id;
     private final String fullName;
@@ -7,7 +7,7 @@ public class Employee {
     private long salary;
 
     public Employee(String fullName, int department, int salary) {
-        id = idCreate++;
+        id = employeeIdSequence++;
         this.fullName = fullName;
         this.department = department;
         this.salary = salary;
