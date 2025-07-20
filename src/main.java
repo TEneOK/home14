@@ -14,7 +14,7 @@ public class main {
 
     private final static Employee[] EMPLOYEES = new Employee[10];
 
-    private static void randomEmployees() {
+    private static void generatingEmployees() {
         for (int i = 0; i < EMPLOYEES.length; i++) {
             String fullName = surnames[random.nextInt(0, surnames.length)] + " " +
                     names[random.nextInt(0, names.length)] + " " +
@@ -25,7 +25,7 @@ public class main {
     }
 
     public static void main(String[] args) {
-        randomEmployees();
+        generatingEmployees();
         print();
         System.out.println("Сумма ЗП сотрудников: " + calculateSumOfSalaries());
         System.out.println("Сотрудник с мин ЗП: " + findEmployeeWitchMinSalary());
