@@ -49,6 +49,16 @@ public class main {
         return sum;
     }
 
+    private static int calculateNumberOfEmployees() {
+        int id = 0;
+        for (Employee employee : EMPLOYEES) {
+            if (employee != null) {
+                id++;
+            }
+        }
+        return id;
+    }
+
     private static Employee findEmployeeWitchMinSalary() {
         Employee employeeWitchMinSalary = null;
         for (Employee employee : EMPLOYEES) {
@@ -70,8 +80,9 @@ public class main {
     }
 
     private static double calculateAverageOfSalaries() {
-        return (double) calculateSumOfSalaries() / EMPLOYEES.length;
+        return (double) calculateSumOfSalaries() / calculateNumberOfEmployees();
     }
+
 
     private static void printFullNames() {
         for (Employee employee : main.EMPLOYEES) {
